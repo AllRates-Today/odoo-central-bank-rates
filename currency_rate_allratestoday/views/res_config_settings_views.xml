@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extends currency_rate_live's block inside the account "Automatic Currency
+         Rates" setting: the new rows sit right under the Service selector and are
+         only shown when AllRatesToday is the selected provider. -->
+    <record id="res_config_settings_view_form_allratestoday" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.currency.rate.allratestoday</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="currency_rate_live.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_provider']/.." position="after">
+                <div invisible="currency_provider != 'allratestoday'">
+                    <div class="row">
+                        <label string="Bank code" for="allratestoday_bank" class="col-lg-3 o_light_label"/>
+                        <field name="allratestoday_bank" placeholder="ecb"/>
+                    </div>
+                    <div class="row">
+                        <label string="API key" for="allratestoday_api_key" class="col-lg-3 o_light_label"/>
+                        <field name="allratestoday_api_key" password="True" placeholder="art_live_... (empty = keyless evaluation copy)"/>
+                    </div>
+                    <div class="row">
+                        <label string="Rate type" for="allratestoday_rate_type" class="col-lg-3 o_light_label"/>
+                        <field name="allratestoday_rate_type" placeholder="optional, e.g. reference"/>
+                    </div>
+                    <div class="text-muted">
+                        Bank codes: <a href="https://allratestoday.com/central-bank-rates-api/" target="_blank">allratestoday.com/central-bank-rates-api</a>
+                        · Free key: <a href="https://allratestoday.com/register" target="_blank">allratestoday.com/register</a>
+                        · Guide: <a href="https://allratestoday.com/docs/integrations/odoo/" target="_blank">docs/integrations/odoo</a>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

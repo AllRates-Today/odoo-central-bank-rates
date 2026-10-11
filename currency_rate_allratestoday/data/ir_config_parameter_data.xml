@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Seed the bank code so a fresh install loads the ECB table until the
+         operator picks another publisher. The API key is deliberately not seeded. -->
+    <record id="config_parameter_allratestoday_bank" model="ir.config_parameter">
+        <field name="key">currency_rate_allratestoday.bank</field>
+        <field name="value">ecb</field>
+    </record>
+</odoo>
