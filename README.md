@@ -95,12 +95,12 @@ Endpoints this addon calls:
 | Keyed | `GET https://allratestoday.com/api/v1/central-bank/{bank}/latest` | `Authorization: Bearer art_live_...` (the API also accepts `?api_key=`) |
 | Keyless | `GET https://allratestoday.com/api/open/central-bank/{bank}` | none; evaluation copy with attribution terms in the body |
 
-Dated tables, history and cross-computed pairs need a key; the Official Rates plan for finance teams is described at <https://allratestoday.com/pricing/#official>. Step-by-step guide and the XML-RPC alternative: <https://allratestoday.com/docs/integrations/odoo/>.
+Cross-computed pairs need a key; dated tables and history need a paid plan; the Official Rates plan for finance teams is described at <https://allratestoday.com/pricing/#official>. Step-by-step guide and the XML-RPC alternative: <https://allratestoday.com/docs/integrations/odoo/>.
 
 ## 🤖 AI agents
 
 - Hosted MCP endpoint, no key: `https://allratestoday.com/api/mcp` — official rates, history, cross-bank comparison and publication calendars as tools for Claude, Cursor and any Streamable HTTP MCP client.
-- **Trial key for agents, no signup**: `POST https://allratestoday.com/api/agent/keys` (send `Content-Type: application/json`) returns a 100-call key valid 7 days, enough to try history and dated tables; both MCP servers expose it as `request_trial_key`
+- **Trial key for agents, no signup**: `POST https://allratestoday.com/api/agent/keys` (send `Content-Type: application/json`) returns a 100-call key valid 7 days for latest rates and latest central-bank tables (history and dated tables are paid-plan only); both MCP servers expose it as `request_trial_key`
 - Machine-readable site guide: <https://allratestoday.com/llms.txt>.
 - An agent asked to "load the RBI reference rate into Odoo" can call the MCP `get_official_rates` tool to inspect the table and then set `currency_rate_allratestoday.bank = rbi` through Odoo's XML-RPC `ir.config_parameter.set_param`.
 
