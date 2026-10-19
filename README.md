@@ -104,6 +104,14 @@ Cross-computed pairs need a key; dated tables and history need a paid plan; the 
 - Machine-readable site guide: <https://allratestoday.com/llms.txt>.
 - An agent asked to "load the RBI reference rate into Odoo" can call the MCP `get_official_rates` tool to inspect the table and then set `currency_rate_allratestoday.bank = rbi` through Odoo's XML-RPC `ir.config_parameter.set_param`.
 
+## 🔗 Links
+
+- [API Documentation](https://allratestoday.com/developers)
+- [Register (Free)](https://allratestoday.com/register)
+- [Dashboard](https://allratestoday.com/profile)
+- [Status](https://allratestoday.com/status)
+- [GitHub](https://github.com/AllRates-Today/odoo-central-bank-rates)
+
 ## 📜 License
 
 [LGPL-3](LICENSE). Odoo is a trademark of Odoo S.A.; this addon is an independent integration and depends on the `currency_rate_live` module shipped with Odoo Enterprise.
