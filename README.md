@@ -78,7 +78,7 @@ The response also carries `rate_date`, `age_days`, `stale` and `cadence`. On wee
 
 Nothing new to schedule. `currency_rate_live` already defines the `ir.cron` **Currency: rate update** (`res.company.run_update_currency()`, every 1 day). It runs for every company whose *Next Run* date is due and calls the selected provider's `_parse_<provider>_data`, so selecting *AllRatesToday* is enough. Set *Interval* to *Daily* for daily publishers and *Monthly* for monthly tables (HMRC, SNB monthly averages); `rate_date` is written as the effective date either way.
 
-Each scheduled run is **one API request** per selected provider. With a key, those requests count toward your plan: the free tier is 300 requests in total (it never resets), so a daily keyed run lasts about 10 months before you need a paid plan. The keyless fallback (no key set) has no quota.
+Each scheduled run is **one API request** per selected provider. With a key, those requests count toward your plan: the free tier does not reset, so a daily keyed run eventually needs a paid plan. The keyless fallback (no key set) has no quota.
 
 ## 🏛️ Sources
 
