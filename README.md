@@ -110,6 +110,7 @@ Cross-computed pairs need a key; dated tables and history need a paid plan; the 
 - [Register (Free)](https://allratestoday.com/register)
 - [Dashboard](https://allratestoday.com/profile)
 - [Status](https://allratestoday.com/status)
+- [Postman collection](https://allratestoday.com/postman/)
 - [GitHub](https://github.com/AllRates-Today/odoo-central-bank-rates)
 
 ## 📜 License
