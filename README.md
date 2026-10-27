@@ -20,7 +20,7 @@ Standard Odoo extension points only: `fields.Selection(selection_add=...)` on `r
 
 ## 🏁 Install
 
-Requirements: Odoo **17.0** with the `currency_rate_live` module available. `currency_rate_live` is part of Odoo Enterprise (it ships with the `account` app on Enterprise and Odoo.sh); on Community it is not present and this addon will not install.
+Requirements: Odoo **17.0** with the `currency_rate_live` module available. `currency_rate_live` is part of Odoo Enterprise (it ships with the `account` app on Enterprise and Odoo.sh); on Community it is not present and this addon will not install — use the OCA provider below instead.
 
 ```bash
 # copy the addon into one of your addons paths
@@ -37,6 +37,16 @@ Run the unit tests without an Odoo instance:
 ```bash
 python3 currency_rate_allratestoday/tests/test_tools.py
 ```
+
+## 🏘️ Odoo Community (OCA `currency_rate_update`)
+
+`currency_rate_live` only exists on Enterprise. For Odoo **Community** this repo also ships **`currency_rate_update_allratestoday/`**, a provider for the OCA [`currency_rate_update`](https://github.com/OCA/currency) module (18.0, AGPL-3, submitted to OCA/currency):
+
+1. Install `currency_rate_update` from OCA/currency, then this addon.
+2. *Invoicing > Configuration > Currency Rates Providers* → new provider → *Source Service* = **AllRatesToday (official central-bank rates)**.
+3. Set the *Publisher code* (`ecb`, `rbi`, `hmrc`, `cbk`, …; [full list](https://allratestoday.com/central-bank-rates-api/institutions/)), optionally an API key (only needed for past dates, paid plan) and a pinned *Rate type*.
+
+Same direction handling as the Enterprise addon; the latest table is fetched keylessly, the wizard's date range walks the dated endpoint one call per day.
 
 ## ⚙️ Setup
 
