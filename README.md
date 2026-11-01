@@ -117,6 +117,7 @@ Cross-computed pairs need a key; dated tables and history need a paid plan; the 
 ## 🔗 Links
 
 - [API Documentation](https://allratestoday.com/developers)
+- [Download central bank rates](https://allratestoday.com/download-central-bank-rates/) — every bank's tables as Excel, CSV or JSON
 - [Register (Free)](https://allratestoday.com/register)
 - [Dashboard](https://allratestoday.com/profile)
 - [Status](https://allratestoday.com/status)
