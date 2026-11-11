@@ -1,6 +1,6 @@
 # AllRatesToday for Odoo 17 — Official Central-Bank Exchange Rates
 
-An Odoo 17 addon that plugs **AllRatesToday** into Odoo's built-in **Automatic Currency Rates** setting as one more *Service Provider*. Pick the central bank or tax authority your books must follow (ECB, Reserve Bank of India, HMRC, Swiss BAZG, ... 121 central banks and 3 tax authorities) and Odoo's existing daily cron loads that publisher's latest table into `res.currency.rate` in the direction Odoo expects.
+An Odoo 17 addon that plugs **AllRatesToday** into Odoo's built-in **Automatic Currency Rates** setting as one more *Service Provider*. Pick the central bank or tax authority your books must follow (ECB, Reserve Bank of India, HMRC, Swiss BAZG, ... 130+ central banks and tax authorities) and Odoo's existing daily cron loads that publisher's latest table into `res.currency.rate` in the direction Odoo expects.
 
 [![Odoo 17.0](https://img.shields.io/badge/Odoo-17.0-714B67.svg)](https://github.com/odoo/odoo/tree/17.0)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://github.com/odoo/odoo/blob/17.0/setup.py)
@@ -10,7 +10,7 @@ An Odoo 17 addon that plugs **AllRatesToday** into Odoo's built-in **Automatic C
 ## 🚀 What it does
 
 - 🏦 **One more provider, zero new plumbing** — adds `AllRatesToday (official central-bank rates)` to `res.company.currency_provider`, next to Odoo's own ECB, Bank of Canada, Banxico and friends. Interval, *Next Run* and the *Update now* button keep working unchanged.
-- 🗺️ **Any publisher, not a fixed list** — Odoo 17 ships a fixed list of around twenty providers; this addon reads any of the [121 central banks and 3 tax authorities](https://allratestoday.com/central-bank-rates-api/) AllRatesToday covers, selected by a short bank code (`ecb`, `rbi`, `hmrc`, `bazg`, ...).
+- 🗺️ **Any publisher, not a fixed list** — Odoo 17 ships a fixed list of around twenty providers; this addon reads any of the [130+ central banks and tax authorities](https://allratestoday.com/central-bank-rates-api/) AllRatesToday covers, selected by a short bank code (`ecb`, `rbi`, `hmrc`, `bazg`, ...).
 - 🧭 **Direction handled** — publishers quote either foreign-per-home (ECB) or home-per-foreign (RBI). Every row is normalised to the shape `currency_rate_live` requires and Odoo rebases it to your company currency itself (details below).
 - 📅 **Dated with the bank's date** — `res.currency.rate.name` is the publisher's `rate_date`, never the run date; a rerun on the same date updates the row instead of duplicating it.
 - 🔑 **Key or keyless** — with a free `art_live_...` key it reads the keyed `/api/v1/` table; with no key it reads the keyless evaluation copy at `/api/open/` (attribution terms are returned in that response).
@@ -92,7 +92,7 @@ Each scheduled run is **one API request** per selected provider. With a key, tho
 
 ## 🏛️ Sources
 
-AllRatesToday republishes the tables the publishers themselves put out: 121 central banks and 3 tax authorities (HMRC, the Swiss Federal Office for Customs and Border Security, the U.S. Treasury). The full list with codes, home currency and cadence is on the [central bank coverage map](https://allratestoday.com/central-bank-rates-api/); each publisher has its own page with the series it prints.
+AllRatesToday republishes the tables the publishers themselves put out: 130+ central banks and tax authorities (HMRC, the Swiss Federal Office for Customs and Border Security, the U.S. Treasury). The full list with codes, home currency and cadence is on the [central bank coverage map](https://allratestoday.com/central-bank-rates-api/); each publisher has its own page with the series it prints.
 
 Disclaimer returned with every keyed response:
 

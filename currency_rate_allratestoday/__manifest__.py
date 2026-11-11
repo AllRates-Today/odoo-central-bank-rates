@@ -1,7 +1,7 @@
 # Part of the AllRatesToday Odoo connector. See LICENSE (LGPL-3).
 {
     'name': 'AllRatesToday: Official Central-Bank Currency Rates',
-    'summary': 'Add AllRatesToday (121 central banks + 3 tax authorities) as a '
+    'summary': 'Add AllRatesToday (130+ central banks and tax authorities) as a '
                'provider in Odoo\'s Automatic Currency Rates setting.',
     'description': """
 Adds "AllRatesToday (official central-bank rates)" to the Service Provider list
